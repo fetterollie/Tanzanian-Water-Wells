@@ -1,5 +1,10 @@
 ![header](images/header.jpg)
 # Tanzanian-Water-Wells
+## Navigating the Notebook
+### Some things worth noting:
+#### Work on this notebook was performed in two seperate environments:
+1. The notebook in the main file uses the environment found in environment.yml 
+2. The notebook used for mapping in the geopandas file uses the environment found in geoenvironment.yml
 ## Overview
 ## Business Understanding and Business Problem
 Build a classification model to predict whether a pump is functional, needs some repairs, or doesn't work at all. Data driven predictions will lead to more efficient maintenance operations and will ensure clean and potable water is available to communities across Tanzania. 
