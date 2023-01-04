@@ -118,3 +118,25 @@ GridSearchCV is used to find the best hyperparameters for the chosen logistic re
 ||| insert some graphs maybe confusion matrix about how model performs
 ## Further Exploration/Questions
 ||| update once I finish this section in the notebook.
+```
+├── data
+│   ├── .DS_Store
+│   ├── SubmissionFormat.csv
+│   ├── test_set_values.csv
+│   ├── training_set_labels.csv
+│   └── training_set_values.csv
+├── geopandas
+│   ├── .DS_Store
+│   ├── geoenvironment.yml
+│   └── maps.ipynb
+├── images
+│   ├── .DS_Store
+│   ├── hand_pump_diagram.png
+│   └── header.jpg
+├── main
+|   ├── environment.yml
+│   └── index.ipynb
+├── .DS_Store
+├── .gitignore
+└── README.md
+```
