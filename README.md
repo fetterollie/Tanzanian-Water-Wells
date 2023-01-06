@@ -1,11 +1,12 @@
-![header](images/header.jpg)
+![tanzania flag](images/tanzania_flag.jpg)
 # Tanzanian-Water-Wells
 ## Navigating the Notebook
 ### Some things worth noting:
 #### Work on this notebook was performed in two seperate environments:
 1. The notebook in the main file uses the environment found in environment.yml 
 2. The notebook used for mapping in the geopandas file uses the environment found in geoenvironment.yml
-## Overview
+
+![hands under well](images/handsatwell.jpeg)
 
 ## Business Understanding and Business Problem
 IHH Humanitarian Relief Foundation is an NGO that provides and maintains water wells in areas where clean water is inaccessible. Building an accurate classification model to predict whether a pump is functional, or in need of repairs will help to streamline their operations. These predictions will maximize their maintenance operations and will ensure clean and potable water is available to the people of Tanzania. 
@@ -22,7 +23,7 @@ Constructing a well in Tanzania can cost upwards of $10000 ([The Living Water Pr
 
 Pumps in wells generally last 10 or more years but their parts do have a finite life span. The cost of repairing a well can range from a few hundred dollars to several thousand dollars. Sending repair efforts to wells that are predicted to need repairs but are in fact functioning (a false positive) use costly resources that could be put toward the wells that are actually in need of repair. 
 
-## Data Understanding
+## Data
 Data for this project is from [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](http://maji.go.tz/).
 
 ## Functions/Classes
@@ -173,8 +174,14 @@ What are the limiting factors in getting resources to the wells that need repair
 │   └── maps.ipynb
 ├── images
 │   ├── .DS_Store
-│   ├── hand_pump_diagram.png
-│   └── header.jpg
+│   ├── handsatwell.jpeg
+│   ├── location_needrepairs.png
+│   ├── location_status_wells_tanzania.png
+│   ├── roc_auc_model_compare.png
+│   ├── tanzania_flag.jpg
+│   ├── waterpoint_types.png
+│   ├── well_status_binary.png
+│   └── well_status_byyear_binary.png
 ├── main
 |   ├── environment.yml
 │   └── index.ipynb
