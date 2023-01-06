@@ -6,10 +6,12 @@
 1. The notebook in the main file uses the environment found in environment.yml 
 2. The notebook used for mapping in the geopandas file uses the environment found in geoenvironment.yml
 ## Overview
+
 ## Business Understanding and Business Problem
-Build a classification model to predict whether a pump is functional, needs some repairs, or doesn't work at all. Data driven predictions will lead to more efficient maintenance operations and will ensure clean and potable water is available to communities across Tanzania. 
+IHH Humanitarian Relief Foundation is an NGO that provides and maintains water wells in areas where clean water is inaccessible. Building an accurate classification model to predict whether a pump is functional, or in need of repairs will help to streamline their operations. These predictions will maximize their maintenance operations and will ensure clean and potable water is available to the people of Tanzania. 
+
 ### Cost of Errors
-Tanzania has an area of 364,900 mi² which makes it the 30th largest country in the world. According to [trade.gov](https://www.trade.gov/country-commercial-guides/tanzania-construction), the managed national road network consists of 21058 miles of roadway, comprising 7944 miles of trunk and 13114 miles of regional roads. Due to the size of the country and the condition of infrastructure, it is important to only deploy maintenance and repair efforts to the locations that are positively in need of repair. 
+Tanzania has an area of 364,900 mi² which makes it the 30th largest country in the world. According to [trade.gov](https://www.trade.gov/country-commercial-guides/tanzania-construction), the managed national road network consists of 21058 miles of roadway, comprising 7944 miles of trunk and 13114 miles of regional roads. Due to the size of the country, the condition of infrastructure, and a limited budget of both capital and manpower, it is important to only deploy maintenance and repair efforts to the locations that are positively in need of repair. 
 
 Constructing a well in Tanzania can cost upwards of $10000 ([The Living Water Project](https://www.livingwaterwells.org/faqs)) depending on factors such as:
 - cost of goods and labor
@@ -18,9 +20,11 @@ Constructing a well in Tanzania can cost upwards of $10000 ([The Living Water Pr
 - location of well
 - cost of fuel (drilling and transportation)
 
-Pumps in wells generally last 10 or more years but their parts do have a finite life span. The cost of repairing a well can range from a few hundred dollars to several thousand dollars. Sending repair efforts to wells that are predicted to need repairs but are in fact functioning (a false negative) use costly resources that could be put toward the wells that are actually in need of repair. 
-## About the Data
+Pumps in wells generally last 10 or more years but their parts do have a finite life span. The cost of repairing a well can range from a few hundred dollars to several thousand dollars. Sending repair efforts to wells that are predicted to need repairs but are in fact functioning (a false positive) use costly resources that could be put toward the wells that are actually in need of repair. 
+
+## Data Understanding
 Data for this project is from [Taarifa](http://taarifa.org/) and the [Tanzanian Ministry of Water](http://maji.go.tz/).
+
 ## Functions/Classes
 This section houses functions and classes created to help later on in the notebook.
 ## Pipelines & Transformers
@@ -92,17 +96,41 @@ Each column with null values was assessed to see if missing values could be impu
 'source_class' - duplicate info</br>
 'waterpoint_type_group' - duplicate info</br>
 'status_group' - this is the target</br>
+
 ### Modifying Target
 This will make the problem into a binary classification, reducing complexity in the models.
+
 ## Exploratory Data Analysis
-||| need to insert eda stuff here
+The chart below shows us the how many wells fall into each status group.
+![chart showing how many wells fall into each status group](images/well_status_binary.png)
+
+The histplot below shows us how many wells are functional and how many need repair. The counts are binned based on construction year.
+![histplot showing functional or needs repair based on construction year](images/well_status_byyear_binary.png)
+
+The chart below breaks down the type of waterpoints by whether they are functional or in need of repair.
+![Chart showing functional or needs repair by waterpoint type](images/waterpoint_types.png)
+
+Map of Tanzania with Location of Wells by Statusf (plotted in maps.ipynb in geopandas folder)
+![Map of Tanzania with Location of Wells by Status](images/location_status_wells_tanzania.png)
+
 ## Baseline Model
-|||address how to say how well the model is performing...
 The baseline model, predicting all wells as functional performed at ~54% ± 0.00007 accuracy. 
 ## First Simple Model
-### Logistic Regression
+### Logistic Regression Classifier
+The first simple model, performed at 79.059% ± 0.00484 accuracy. 
+
 ### Decision Tree Classifier
+The Decision Tree Classifier model, performed at 78.474% ± 0.00606 accuracy. 
+
 ### Random Forest Classifier
+The Random Forest Classifier model, performed at 82.144% ± 0.00505 accuracy. 
+
+### Gradient Booster Model
+The gradient booster model, performed at 76.658% ± 0.00781 accuracy. 
+
+### XGBoost Model
+The XGBoost Model model, performed at 80.173% ± 0.00607 accuracy. 
+
 ## Model Choice - Logistic Regression
 1. Logistic regression is faster to train than other models
 2. Logistic regression is more interpretable which makes it more useful for the non-technical presentation
@@ -114,10 +142,24 @@ GridSearchCV is used to find the best hyperparameters for the chosen logistic re
  - Best penalty: l2
  - Best solver: liblinear
 ## Final Model - Logistic Regression
-||| insert some notes about how this final model performs
-||| insert some graphs maybe confusion matrix about how model performs
+Many of the models had similar performance but I chose to use logistic regression because it was faster to train and more interpretable and is also less prone to over fitting.
+The final model for logistic regression, performs at ~79.6% accuracy. 
+A comparison of models using ROC/AUC
+![Comparison of models using ROC/AUC](images/roc_auc_model_compare.png)
+
 ## Further Exploration/Questions
-||| update once I finish this section in the notebook.
+Is there a benefit to knowing specifically which wells need repairs but are functioning as opposed to the wells that are not functioning?
+
+Given more time, I would like to create a model to predict each status group originally given ('functional', 'non functional', and 'functional needs repair') instead of converting the target to a binary outcome.
+
+What are the limiting factors in getting resources to the wells that need repairs?
+- Maintenance Professionals?
+- Time?
+- Money?
+- Parts?
+- Knowledge?
+
+||| Update directory later
 ```
 ├── data
 │   ├── .DS_Store
