@@ -163,17 +163,15 @@ What are the limiting factors in getting resources to the wells that need repair
 ||| Update directory later
 ```
 ├── data
-│   ├── .DS_Store
 │   ├── SubmissionFormat.csv
 │   ├── test_set_values.csv
 │   ├── training_set_labels.csv
 │   └── training_set_values.csv
 ├── geopandas
-│   ├── .DS_Store
+
 │   ├── geoenvironment.yml
 │   └── maps.ipynb
 ├── images
-│   ├── .DS_Store
 │   ├── handsatwell.jpeg
 │   ├── location_needrepairs.png
 │   ├── location_status_wells_tanzania.png
@@ -185,7 +183,6 @@ What are the limiting factors in getting resources to the wells that need repair
 ├── main
 |   ├── environment.yml
 │   └── index.ipynb
-├── .DS_Store
 ├── .gitignore
 └── README.md
 ```
