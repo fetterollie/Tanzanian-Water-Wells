@@ -145,7 +145,8 @@ GridSearchCV is used to find the best hyperparameters for the chosen logistic re
 ## Final Model - Logistic Regression
 Many of the models had similar performance but I chose to use logistic regression because it was faster to train and more interpretable and is also less prone to over fitting.
 The final model for logistic regression, performs at ~79.6% accuracy. 
-A comparison of models using ROC/AUC
+
+
 ![Comparison of models using ROC/AUC](images/roc_auc_model_compare.png)
 
 ## Further Exploration/Questions
@@ -160,7 +161,7 @@ What are the limiting factors in getting resources to the wells that need repair
 - Parts?
 - Knowledge?
 
-||| Update directory later
+
 ```
 ├── data
 │   ├── SubmissionFormat.csv
